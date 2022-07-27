@@ -94,3 +94,14 @@ describe('backstage pass quality rules', () => {
       expect(added.sellIn).to.equal(-1);
   });
 })
+
+
+describe('sulfuras quality rules', () => {
+  it('should not decrease quality for sulfuras', () => {
+      const gildedRose = new GildedRose([ new Item('Sulfuras, Hand of Ragnaros', 1, 1) ]);
+      const items = gildedRose.updateQuality();
+       const added =items[0]
+      expect(added.quality).to.equal(80);
+      expect(added.sellIn).to.equal(1);
+  });
+})
