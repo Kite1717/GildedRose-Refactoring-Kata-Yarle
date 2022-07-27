@@ -7,24 +7,24 @@ export class GildedRose {
     this.items = items;
   }
 
-  updateQuality() {
+  updateQuality(): Array<Item> {
     for (const item of this.items) {
       switch (item.name) {
         case ItemTypes.A_BRIE:
           updateABrie(item);
-          continue;
+          break;
         case ItemTypes.B_PASS:
           updateBPass(item);
-          continue;
+          break;
         case ItemTypes.S_HAND:
           updateSHand(item);
-          continue;
+          break;
         case ItemTypes.CONJ:
           updateConj(item);
-          continue;
+          break;
         default:
           updateDefault(item);
-          continue;
+          break;
       }
     }
 
