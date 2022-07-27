@@ -13,10 +13,12 @@ export class Item {
 export const ItemTypes: ItemTypes = {
     A_BRIE: 'Aged Brie',
     B_PASS: 'Backstage passes to a TAFKAL80ETC concert',
-    S_HAND: 'Sulfuras, Hand of Ragnaros'
+    S_HAND: 'Sulfuras, Hand of Ragnaros',
+    CONJ: 'Conjured'
 }
 interface ItemTypes {
     A_BRIE: string;
     B_PASS: string;
     S_HAND: string;
+    CONJ: string;
 }
