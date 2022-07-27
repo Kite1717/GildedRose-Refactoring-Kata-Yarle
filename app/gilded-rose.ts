@@ -9,6 +9,11 @@ export class Item {
     this.quality = quality;
   }
 }
+const ItemTypes = {
+  A_BRIE: 'Aged Brie',
+  B_PASS: 'Backstage passes to a TAFKAL80ETC concert',
+  S_HAND: 'Sulfuras, Hand of Ragnaros'
+}
 
 export class GildedRose {
   items: Array<Item>;
