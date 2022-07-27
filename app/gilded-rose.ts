@@ -1,20 +1,5 @@
 import { updateABrie, updateBPass, updateSHand, updateDefault } from "./gilded-rose-functions";
-import { Item } from "./item";
-
-interface ItemTypes {
-  A_BRIE: string;
-  B_PASS: string;
-  S_HAND: string;
-}
-
-const ItemTypes: ItemTypes = {
-  A_BRIE: 'Aged Brie',
-  B_PASS: 'Backstage passes to a TAFKAL80ETC concert',
-  S_HAND: 'Sulfuras, Hand of Ragnaros'
-}
-
-
-
+import { Item, ItemTypes } from "./item";
 export class GildedRose {
   items: Array<Item>;
 
@@ -24,7 +9,6 @@ export class GildedRose {
 
   updateQuality() {
     for (const item of this.items) {
-
       switch (item.name) {
         case ItemTypes.A_BRIE:
           updateABrie(item);
@@ -39,7 +23,6 @@ export class GildedRose {
           updateDefault(item);
           continue;
       }
-
     }
 
     return this.items;
