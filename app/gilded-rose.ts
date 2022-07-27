@@ -1,21 +1,29 @@
+
+interface ItemTypes {
+  A_BRIE: string;
+  B_PASS: string;
+  S_HAND: string;
+}
+
+
 export class Item {
   name: string;
   sellIn: number;
   quality: number;
 
-  constructor(name, sellIn, quality) {
+  constructor(name: string, sellIn: number, quality: number) {
     this.name = name;
     this.sellIn = sellIn;
     this.quality = quality;
   }
 }
-const ItemTypes = {
+const ItemTypes: ItemTypes = {
   A_BRIE: 'Aged Brie',
   B_PASS: 'Backstage passes to a TAFKAL80ETC concert',
   S_HAND: 'Sulfuras, Hand of Ragnaros'
 }
 
-const updateABrie = (item) => {
+const updateABrie = (item: Item) => {
   if (item.quality < 50) {
     item.quality = item.quality + 1;
   }
@@ -25,7 +33,7 @@ const updateABrie = (item) => {
   }
 }
 
-const updateBPass = (item) => {
+const updateBPass = (item: Item) => {
   if (item.quality < 50) {
     item.quality = item.quality + 1
     if (item.sellIn < 11 && item.quality < 50) {
@@ -41,16 +49,16 @@ const updateBPass = (item) => {
   }
 }
 
-const updateSHand = (item) => {
+const updateSHand = (item: Item) => {
 }
 
-const updateDefault = (item) => {
+const updateDefault = (item: Item) => {
   if (item.quality > 0) {
     item.quality = item.quality - 1;
   }
   item.sellIn = item.sellIn - 1;
   if (item.sellIn < 0 && item.quality > 0) {
-      item.quality = item.quality - 1;
+    item.quality = item.quality - 1;
   }
 }
 
