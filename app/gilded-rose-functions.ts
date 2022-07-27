@@ -2,6 +2,7 @@ import { Item } from "./item";
 
 const MAX_QUALITY = 50;
 const MIN_QUALITY = 0;
+const SULFURAS_QUALITY = 80;
 
 const increaseQuality = (quality: number) => Math.min(MAX_QUALITY, quality + 1);
 const decreaseQuality = (quality: number) => Math.max(MIN_QUALITY, quality + 1);
@@ -25,7 +26,9 @@ export const updateBPass = (item: Item) => {
     item.sellIn -= 1;
 };
 
-export const updateSHand = (item: Item) => { };
+export const updateSHand = (item: Item) => {
+    item.quality = SULFURAS_QUALITY;
+};
 
 export const updateDefault = (item: Item) => {
     item = updateDecreaseQualityItem(item);
