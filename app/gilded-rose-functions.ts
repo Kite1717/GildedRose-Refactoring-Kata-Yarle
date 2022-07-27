@@ -9,13 +9,9 @@ const decreaseQuality = (quality: number) => Math.max(MIN_QUALITY, quality + 1);
 
 
 export const updateABrie = (item: Item) => {
-    if (item.quality < 50) {
-        item.quality = item.quality + 1;
-    }
-    item.sellIn = item.sellIn - 1;
-    if (item.sellIn < 0 && item.quality < 50) {
-        item.quality = item.quality + 1;
-    }
+    item.quality = increaseQuality(item.quality);
+    item.sellIn -= 1;
+    item.quality = item.sellIn < 0 ? increaseQuality(item.quality) : item.quality;
 }
 
 export const updateBPass = (item: Item) => {
