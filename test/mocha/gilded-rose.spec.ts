@@ -37,3 +37,29 @@ describe('basic quality rules', () => {
       expect(added.sellIn).to.equal(-1);
   });
 })
+
+describe('aged brie quality', () => { 
+
+  it('quality of Aged Brie goes up', () => {
+      const gildedRose = new GildedRose([ new Item('Aged Brie', 1, 1) ]);
+      const items = gildedRose.updateQuality();
+      const added =items[0]
+      expect(added.quality).to.equal(2);
+      expect(added.sellIn).to.equal(0);
+  });
+  
+  it('quality should never go above 50', () => {
+      const gildedRose = new GildedRose([ new Item('Aged Brie', 1, 50) ]);
+      const items = gildedRose.updateQuality();
+       const added =items[0]
+      expect(added.quality).to.equal(50);
+      expect(added.sellIn).to.equal(0);
+  });
+  it('should allow quality of aged brie to be incremented up to 50', () => {
+      const gildedRose = new GildedRose([ new Item('Aged Brie', -10, 10) ]);
+      const items = gildedRose.updateQuality();
+       const added =items[0]
+      expect(added.quality).to.equal(12);
+      expect(added.sellIn).to.equal(-11);
+  });
+})
